@@ -1,2 +1,2 @@
-dnaweaver==0.3.0
+dnaweaver==0.3.1
 pySBOL==2.3.3.post7
