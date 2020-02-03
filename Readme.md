@@ -94,3 +94,5 @@ For constructs with repeated parts and other homologies (such as, in the example
 - ``methods/generate_supply_network.py`` -- implements the DnaWeaver supply network from the figure above.
 - ``methods/compute_all_constructs.py`` -- main loop to iterate over all constructs and get assembly plans using the supply network.
 - ``methods/write_output_spreadsheet.py`` -- method to write the data collected into the output spreadsheet.
+
+Written by [Zulko](https://github.com/Zulko) at the [Edinburgh Genome Foundry](https://edinburgh-genome-foundry.github.io/).
