@@ -1,2 +1,2 @@
-dnaweaver==0.3.3
+dnaweaver==0.3.0
 pySBOL==2.3.3
