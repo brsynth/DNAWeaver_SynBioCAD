@@ -72,6 +72,11 @@ def compute_all_construct_quotes(
 
         try:
             for shift in range(5):
+                # In DNA weaver, the sequence's 0 position is always considered
+                # a cut site. In the unlucky case where this cut site is
+                # invalid (e.g. it has a palyndromic sequence preventing
+                # Golden Gate assembly), we rotate the sequence a bit to find
+                # a better position 0
                 rotated_sequence = sequence[shift:] + sequence[:shift]
                 rotated_sequence = SequenceString(
                     rotated_sequence, metadata={"topology": "circular"}
@@ -81,13 +86,14 @@ def compute_all_construct_quotes(
                 if quote.accepted:
                     break
         except Exception as err:
+            logger(message="Construct %s errored." % construct)
             errors[construct] = str(err)
             continue
         if not quote.accepted:
-            logger(message="Construct %s processed succesfully." % construct)
+            logger(message="Construct %s: no valid plan found." % construct)
             errors[construct] = "No assembly plan found: %s" % quote.message
             continue
-        logger(message="Construct %s errored." % construct)
+        logger(message="Construct %s processed succesfully." % construct)
         # IF SUCCESS, LOG THE QUOTE AND ITS PRODUCTS
 
         id_prefix = "ID_%s" % (i + 1)
