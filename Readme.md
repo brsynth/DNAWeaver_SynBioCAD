@@ -54,7 +54,7 @@ The designs and part sequences are provided as an SBOL file
   with the exact sequence provided in the input file (in the future it would be easy to automatically break long parts into smaller fragments).
 - The desired sequence for a design is simply the contenation of that design's part sequences in the right order (no assembly overhang is included).
 - Buy primers with overhangs to extend the parts fragments via PCR and create   homologies between them so they can be assembled 
-- Assemble each construct in a single step with Golden Gate assembly if possible, else with Gibson assembly.
+- Assemble each construct in a single step with Golden Gate assembly if possible, else with Gibson assembly (or only one of the two methods if the option ``gibson`` or ``golden_gate`` is selected).
 - Start with the first design, and for each subsequence design assembly plan   reuse the primers ordered and fragments PCRed in previous designs, if   relevant.
 
 Here is a schema of the supply network used:
