@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.6"
+# command to install dependencies
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install ncbi-blast+
+install:
+  - pip install coveralls pytest-cov==2.6 pytest==3.2.3
+  - pip install -r requirements.txt
+# command to run tests
+script:
+  - python3 -m pytest tests.py
+
+after_success:
+  - coveralls
