@@ -39,7 +39,9 @@ def generate_supply_network(
         name="already_ordered_primers", parts_dict=already_ordered_primers,
     )
     primers_company = dw.CommercialDnaOffer(
-        name="oligo_supplier", pricing=dw.FixedCostPricing(1), lead_time=0
+        name="oligo_supplier", pricing=dw.FixedCostPricing(1), lead_time=0,
+        sequence_constraints=(dw.SequenceLengthConstraint(max_length=100),)
+
     )
 
     primers_comparator = dw.DnaSuppliersComparator(
