@@ -3,3 +3,4 @@ pySBOL==2.3.3.post7
 openpyxl==2.5.7
 xlrd==1.1.0
 xlwt==1.2.0
+docopt
