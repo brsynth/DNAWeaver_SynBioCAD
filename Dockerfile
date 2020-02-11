@@ -17,3 +17,12 @@ COPY script.py /home
 COPY test_input.xml /home
 COPY example_output.xlsx /home
 COPY tests.py /home
+
+COPY rpToolServe.py /home/
+COPY rpTool.py /home/
+
+ENTRYPOINT ["python"]
+CMD ["/home/rpToolServe.py"]
+
+# Open server port
+EXPOSE 8888

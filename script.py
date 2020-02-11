@@ -37,6 +37,7 @@ if __name__ == "__main__":
     # PARSE THE SBOL FILE
     
     design_data = get_assembly_plan_from_sbol(path=params["<input>"])
+    print(params["<input>"])
     part_sequences, construct_parts, construct_sequences = design_data
 
     # COMPUTE ALL QUOTES
