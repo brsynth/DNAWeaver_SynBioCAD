@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 from docopt import docopt
 from methods import (
@@ -118,10 +118,10 @@ def processify(func):
 ################################### DNA Weaver ##########################################
 #########################################################################################
 
-@processify
+#@processify
 def runDNAWeaver(inputSBOL_path, outpoutXLSX_path, assembly_method='any_method', max_constructs=None):
     if not assembly_method in ['gibson', 'golden_gate', 'any_method']:
-        logging.warning('Did not resognise assembly method input: '+str(assembly_method)+'. Reversting to any_method')
+        logging.warning('Did not resognise assembly method input: '+str(assembly_method)+'. Reverting to any_method')
         assembly_method = 'any_method'
     # PARSE THE SBOL FILE
     part_sequences, construct_parts, construct_sequences = get_assembly_plan_from_sbol(path=inputSBOL_path)
