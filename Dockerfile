@@ -18,4 +18,3 @@ COPY example_output.xlsx /home
 COPY tests.py /home
 
 COPY rpTool.py /home/
-COPY tool_DNAWeaver.py /home/
