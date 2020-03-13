@@ -32,7 +32,7 @@ def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
         for seq in sbol_doc.sequences
     }
     parts_per_construct = [
-        (component.displayId, [c.displayId[:-2] for c in component.components])
+        (component.displayId.replace('_sequence', '').replace('_seq', ''), [c.displayId[:-2] for c in component.components])
         for component in sbol_doc.componentDefinitions
         if len(component.components)
     ]
