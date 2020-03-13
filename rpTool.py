@@ -9,6 +9,28 @@ from methods import (
 import logging
 import tempfile
 import shutil
+import tarfile
+import glob
+
+## run using HDD 3X less than the above function
+#
+#
+def runDNAWeaver_hdd(inputTar, outputTar, assembly_method='any_method', max_constructs=None):
+    with tempfile.TemporaryDirectory() as tmpOutputFolder:
+        with tempfile.TemporaryDirectory() as tmpInputFolder:
+            tar = tarfile.open(inputTar, mode='r')
+            tar.extractall(path=tmpInputFolder)
+            tar.close()
+            for sbol_path in glob.glob(tmpInputFolder+'/*'):
+                if sbol_path.split('/')[-1].split('.')[-1]=='xml':
+                    fileName = sbol_path.split('/')[-1].replace('.sbol', '').replace('.xml', '').replace('.rpsbml', '')
+                    runDNAWeaver(sbol_path, tmpOutputFolder+'/'+fileName+'.xlsx', assembly_method, max_constructs)
+            with tarfile.open(outputTar, mode='w:xz') as ot:
+                for excel_path in glob.glob(tmpOutputFolder+'/*'):
+                    fileName = str(excel_path.split('/')[-1]
+                    info = tarfile.TarInfo(fileName)
+                    info.size = os.path.getsize(excel_path)
+                    ot.addfile(tarinfo=info, fileobj=open(excel_path, 'rb'))
 
 #########################################################################################
 ################################### DNA Weaver ##########################################
@@ -27,14 +49,12 @@ def runDNAWeaver(inputSBOL_path, outpoutXLSX_path, assembly_method='any_method',
                                                     assembly_method=assembly_method,
                                                     max_constructs=int(max_constructs) if max_constructs else None)
     # WRITE THE RESULT
-    with tempfile.TemporaryDirectory() as tmpOutputFolder:
-        write_output_spreadsheet(quotes=quotes,
-                                primer_sequences=primer_sequences,
-                                part_sequences=part_sequences,
-                                fragment_quotes=fragment_quotes,
-                                construct_parts=construct_parts,
-                                construct_sequences=construct_sequences,
-                                errors=errors,
-                                target=tmpOutputFolder+'/tmp.xlsx')
-        shutil.copy(tmpOutputFolder+'/tmp.xlsx', outpoutXLSX_path)
+    write_output_spreadsheet(quotes=quotes,
+                            primer_sequences=primer_sequences,
+                            part_sequences=part_sequences,
+                            fragment_quotes=fragment_quotes,
+                            construct_parts=construct_parts,
+                            construct_sequences=construct_sequences,
+                            errors=errors,
+                            target=outpoutXLSX_path)
     return True
