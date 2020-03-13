@@ -28,7 +28,7 @@ def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
         sbol_doc.read(path)
 
     parts_sequences = {
-        seq.displayId.replace("_sequence", ""): seq.elements.upper()
+        seq.displayId.replace('_sequence', '').replace('_seq', ''): seq.elements.upper()
         for seq in sbol_doc.sequences
     }
     parts_per_construct = [
