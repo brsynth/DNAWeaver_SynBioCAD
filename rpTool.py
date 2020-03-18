@@ -11,6 +11,7 @@ import tempfile
 import shutil
 import tarfile
 import glob
+import os
 
 ## run using HDD 3X less than the above function
 #
@@ -27,7 +28,7 @@ def runDNAWeaver_hdd(inputTar, outputTar, assembly_method='any_method', max_cons
                     runDNAWeaver(sbol_path, tmpOutputFolder+'/'+fileName+'.xlsx', assembly_method, max_constructs)
             with tarfile.open(outputTar, mode='w:xz') as ot:
                 for excel_path in glob.glob(tmpOutputFolder+'/*'):
-                    fileName = str(excel_path.split('/')[-1]
+                    fileName = str(excel_path.split('/')[-1])
                     info = tarfile.TarInfo(fileName)
                     info.size = os.path.getsize(excel_path)
                     ot.addfile(tarinfo=info, fileobj=open(excel_path, 'rb'))
