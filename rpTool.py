@@ -26,7 +26,7 @@ def runDNAWeaver_hdd(inputTar, outputTar, assembly_method='any_method', max_cons
                 if sbol_path.split('/')[-1].split('.')[-1]=='xml':
                     fileName = sbol_path.split('/')[-1].replace('.sbol', '').replace('.xml', '').replace('.rpsbml', '')
                     runDNAWeaver(sbol_path, tmpOutputFolder+'/'+fileName+'.xlsx', assembly_method, max_constructs)
-            with tarfile.open(outputTar, mode='w:xz') as ot:
+            with tarfile.open(outputTar, mode='w:gz') as ot:
                 for excel_path in glob.glob(tmpOutputFolder+'/*'):
                     fileName = str(excel_path.split('/')[-1])
                     info = tarfile.TarInfo(fileName)
