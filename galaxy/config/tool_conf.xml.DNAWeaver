@@ -1,0 +1,3 @@
+  <section id="sbc" name="SynBioCAD">
+    <tool file="DNAWeaver/code/wrap_DNAWeaver.xml" />
+  </section>
