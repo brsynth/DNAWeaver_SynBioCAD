@@ -1,7 +1,7 @@
 <tool id="DNAWeaver" name="DNA Weaver" version="1.0">
   <description>Given a SBOL input, calculate assembly parts for Gibson or Golden Gate</description>
   <requirements>
-    <container type="docker">brsynth/dnaweaver-standalone:dev</container>
+    <container type="docker">brsynth/dnaweaver-standalone</container>
   </requirements>
   <stdio>
 		<regex match="WARNING:" level="warning" />
