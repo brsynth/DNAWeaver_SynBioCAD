@@ -13,10 +13,23 @@ import tarfile
 import glob
 import os
 
-## run using HDD 3X less than the above function
-#
-#
+
 def runDNAWeaver_hdd(inputTar, outputTar, assembly_method='any_method', max_constructs=None):
+    """Function that reads rpSBML Tar files and outputs the DNAWeaver assembly protocol
+
+    :param intputTar: The input TAR collection of SBOL files
+    :param outputTar: The output assembly protocols for each SBOL
+    :param assembly_method: The assembly method to use. Valid options: gibson, golden_data, any_method
+    :param max_constructs: Maximum number of of constructs
+
+    :type intputTar: str 
+    :type outputTar: str
+    :type assembly_method: str
+    :type max_constructs: int
+
+    :rtype: None
+    :return: None
+    """
     with tempfile.TemporaryDirectory() as tmpOutputFolder:
         with tempfile.TemporaryDirectory() as tmpInputFolder:
             tar = tarfile.open(inputTar, mode='r')
@@ -33,11 +46,28 @@ def runDNAWeaver_hdd(inputTar, outputTar, assembly_method='any_method', max_cons
                     info.size = os.path.getsize(excel_path)
                     ot.addfile(tarinfo=info, fileobj=open(excel_path, 'rb'))
 
+
 #########################################################################################
 ################################### DNA Weaver ##########################################
 #########################################################################################
 
+
 def runDNAWeaver(inputSBOL_path, outpoutXLSX_path, assembly_method='any_method', max_constructs=None):
+    """Parse a single SBOL to generate the XLSX assembly protocol
+
+    :param inputSBOL_path: The path to the SBOL file
+    :param outpoutXLSX_path: The path to the output file
+    :param assembly_method: The assembly method to use. Valid options: gibson, golden_data, any_method
+    :param max_constructs: Maximum number of of constructs
+
+    :type inputSBOL_path: str 
+    :type outpoutXLSX_path: str
+    :type assembly_method: str
+    :type max_constructs: str
+
+    :rtype: bool
+    :return: Success or failure of the function
+    """
     if not assembly_method in ['gibson', 'golden_gate', 'any_method']:
         logging.warning('Did not resognise assembly method input: '+str(assembly_method)+'. Reverting to any_method')
         assembly_method = 'any_method'

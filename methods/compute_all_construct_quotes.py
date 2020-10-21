@@ -17,27 +17,20 @@ def compute_all_construct_quotes(
     fragment used in a construct are considered as available for free in the
     next construct assembly.
 
-    Parameters
-    ----------
-    construct_sequences
-      A dict of the form ``{construct_id: "ATGCCC..."}`` of all constructs to
-      be built.
-    
-    parts_sequences
-      A dictionary {part_id: "ATGCGC..."} of the base genetic parts, which will
-      be considered as available for free.
-    
-    assembly_method
-      Either "gibson", "golden_gate", or "any_method" (each construct will
-      then be assembled using any method, with a preference for Golden Gate
-      Assembly)
-    
-    logger="bar"
-      A proglog logger
+    :param construct_sequences: A dict of the form ``{construct_id: "ATGCCC..."}`` of all constructs to be built.
+    :param parts_sequences: A dictionary {part_id: "ATGCGC..."} of the base genetic parts, which will be considered as available for free.
+    :param assembly_method: Either "gibson", "golden_gate", or "any_method" (each construct will then be assembled using any method, with a preference for Golden Gate Assembly)
+    :param logger: A proglog logger
+    :param max_constructs: Maximal number of constructs (Default: None)
 
-    Returns
-    -------
-    (quotes_dict, ordered_primers, amplified_fragments_quotes, errors)
+    :type construct_sequences: dict
+    :type parts_sequences: dict
+    :type assembly_method: str
+    :type logger: str
+    :type max_constructs: int
+
+    :rtype: tuple
+    :return: Tuple of with quotes_dict, ordered_primers, amplified_fragments_quotes and errors
       Data on the optimized DNA manufacturing plan
       - quotes_dict is a dict of the form {quote_id: quote} (where "quote" is
         a DNA Weaver Quote)

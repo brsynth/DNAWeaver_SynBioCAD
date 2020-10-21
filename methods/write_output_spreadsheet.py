@@ -14,18 +14,28 @@ def write_output_spreadsheet(
     target="output.xlsx",
 ):
     """Write the result of DNA construction plan computations as a spreadsheet.
-
-    Parameters
-    ----------
-
-    quotes, primer_sequences, fragments_quotes, errors
-      Output of ``compute_all_construct_quotes()`` (see docs of this method)
     
-    part_sequences, construct_parts, construct_sequences
-      Output of ``get_assembly_plan_from_sbol()`` (cf that method's doc)
-    
-    target
-      Path to the output file
+    :param quotes: The dictionary of DNAWeaver quote id
+    :param primer_sequences: The dictionary of primer sequences
+    :param fragment_quotes: PCR fragments of the dictionary
+    :param errors: List of errors as a dictionary 
+    :param part_sequences: The sequences of all the parts
+    :param construct_parts: The assembled parts sequences
+    :param construct_sequences: The assembled sequence
+    :param target: The path to the output file
+
+
+    :type quotes: dict 
+    :type primer_sequences: dict
+    :type fragment_quotes: dict
+    :type errors: dict
+    :type part_sequences: dict
+    :type construct_parts: dict
+    :type construct_sequences: dict
+    :type target: str
+
+    :rtype: None
+    :return: None
     """
 
     # HELPER FUNCTIONS

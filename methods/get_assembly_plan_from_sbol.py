@@ -4,20 +4,14 @@ from collections import OrderedDict
 def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
     """Extract an assembly plan from sbol
 
-    Parameters
-    ----------
+    :param sbol_doc: A PySBOL Document() containing the designs and parts sequences. A path to a SBOL .xml file can be provided instead.
+    :param path: A path to a SBOL .xml file
 
-    sbol_doc
-      A PySBOL Document() containing the designs and parts sequences. A path
-      to a SBOL .xml file can be provided instead.
-
-    path
-      A path to a SBOL .xml file
+    :type sbol_doc: sbol.Document
+    :type path: str
     
-    Returns
-    -------
-
-    (parts_sequences, parts_per_construct, constructs_sequences)
+    :rtype: tuple
+    :return: Return a tuple with parts_sequences, parts_per_construct and constructs_sequences
       Assembly plan data:
       - parts_sequences is of the form ``{part_id: "ATTTGTGTGC..."}``,
       - parts_per_constructs is of the form ``{construct_id: [part_id_1,...]}``
