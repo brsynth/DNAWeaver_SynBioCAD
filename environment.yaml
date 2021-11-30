@@ -1,0 +1,19 @@
+name: dnaweaver
+channels:
+  - conda-forge
+dependencies:
+  - python=3.7
+  - numpy
+  - biopython
+  - proglog
+  - networkx
+  - flametree
+  - bioconda::dna_features_viewer
+  - weasyprint
+  - pandas
+  - jinja2
+  - optdoc # brs wrapper
+  - requests # brs wrapper
+  - pip
+  - pip:
+    - dnaweaver # brs wrapper
