@@ -6,7 +6,6 @@ from . import (
 )
 from .Args import build_args_parser
 
-# PARSE THE SBOL FILE
 
 if __name__ == "__main__":
 
