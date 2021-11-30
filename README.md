@@ -22,14 +22,14 @@ pip install -r requirements.txt
 
 ## Running the script
 
-See ``script.py`` or run ``./script.py -h`` for the description of the parameters.
+Run ``python -m dnaweaver_cli --help`` for the description of the parameters.
 The typical example is:
 
 ```
-script.py input_sbol.xml output.xlsx any_method
+python -m dnaweaver_cli tests/data/input/test.xml output.xlsx any_method
 ```
 
-Where ``input_sbol.xml`` is a path to an .xml SBOL file containing constructs designs and sequences, ``output.xlsx`` is a spreadsheet report of the assembly
+Where ``test.xml`` is a path to an .xml SBOL file containing constructs designs and sequences, ``output.xlsx`` is a spreadsheet report of the assembly
 plan, and ``any_method`` (which can also be only ``gibson`` or ``golden_gate``)
 indicates to consider both methods.
 
@@ -44,7 +44,7 @@ pip install pytest
 Then run the tests with:
 
 ```
-python3 -m pytest tests.py
+python3 -m pytest
 ```
 
 ## What this program does
@@ -54,7 +54,7 @@ python3 -m pytest tests.py
 Given a set of designs (one design is a construct name and list of
 its parts), find a valid and efficient assembly plan to build all the designs.
 The designs and part sequences are provided as an SBOL file
-(see ``test_input.xml`` for an example)
+(see ``tests/data/input/test.xml`` for an example)
 
 **Method:**
 

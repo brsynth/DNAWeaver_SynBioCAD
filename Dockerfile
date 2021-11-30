@@ -11,10 +11,5 @@ RUN pip install --upgrade pip \
  && pip install -r requirements.txt
 
 COPY docs /home/docs
-COPY methods /home/methods
-COPY script.py /home
-COPY test_input.xml /home
-COPY example_output.xlsx /home
-COPY tests.py /home
-
-COPY rpTool.py /home/
+COPY dnaweaver_cli /home/methods
+COPY tests /home/methods

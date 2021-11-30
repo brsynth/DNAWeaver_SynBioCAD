@@ -2,7 +2,7 @@ name: dnaweaver
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+  - python=3.6
   - numpy
   - biopython
   - proglog
@@ -12,8 +12,7 @@ dependencies:
   - weasyprint
   - pandas
   - jinja2
-  - optdoc # brs wrapper
-  - requests # brs wrapper
-  - pip
-  - pip:
-    - dnaweaver # brs wrapper
+  - dnaweaver
+  - optdoc
+  - requests
+  - openpyxl

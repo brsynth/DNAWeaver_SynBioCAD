@@ -10,17 +10,23 @@ def get_sheet_length(filepath, sheet_name):
 
 
 def run_test_with_assembly_method(output_path, assembly_method):
-    script_path = os.path.join(this_directory, "script.py")
-    input_path = os.path.join(this_directory, "test_input.xml")
+    script_path = "python -m dnaweaver_cli"
+    input_path = os.path.join(
+        this_directory,
+        'data',
+        'input',
+        'test.xml'
+    )
     parameters = [
-        script_path,
         input_path,
         output_path,
         assembly_method,
         "--constructs=6",
     ]
     process = subprocess.run(
-        parameters, stdout=subprocess.PIPE, stderr=subprocess.PIPE
+        script_path.split() + parameters,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE
     )
     if process.returncode:
         error = process.stderr.decode()
