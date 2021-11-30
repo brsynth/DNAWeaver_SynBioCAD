@@ -1,4 +1,4 @@
-import sbol
+from . import sbol
 from collections import OrderedDict
 
 def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
