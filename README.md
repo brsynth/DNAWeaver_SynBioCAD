@@ -1,4 +1,4 @@
-# galaxy_synbioCAD_dnaweaver
+# DNA Weaver (for SynBioCAD)
 
 [![Anaconda-Server Badge](https://anaconda.org/bioconda/dnaweaver_synbiocad/badges/version.svg)](https://anaconda.org/bioconda/dnaweaver_synbiocad) [![Anaconda-Server Badge](https://anaconda.org/bioconda/dnaweaver_synbiocad/badges/latest_release_date.svg)](https://anaconda.org/bioconda/dnaweaver_synbiocad) [![Build Status](https://travis-ci.org/Edinburgh-Genome-Foundry/galaxy_synbiocad_dnaweaver.svg?branch=master)](https://travis-ci.org/Edinburgh-Genome-Foundry/galaxy_synbiocad_dnaweaver)
 
