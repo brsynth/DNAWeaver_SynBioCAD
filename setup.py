@@ -3,11 +3,11 @@ from os import path as os_path
 
 
 ## INFOS ##
-package     = 'doebase'
-descr       = 'Optimal Design of Experiments (DoE) base package for synthetic biology'
-url         = 'https://github.com/pablocarb/doebase'
-authors     = 'Pablo Carbonell'
-corr_author = 'pablo.carbonell@upv.es'
+package     = 'dnaweaver_synbiocad'
+descr       = 'Create an optimized assembly plan for combinatorial designs'
+url         = 'https://github.com/brsynth/DNAWeaver_SynBioCAD'
+authors     = 'Valentin Zulkower'
+corr_author = ''
 
 ## LONG DESCRIPTION
 with open(
@@ -55,6 +55,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    python_requires               = '>=3.7',
+    python_requires               = '>=3.6',
 )
 

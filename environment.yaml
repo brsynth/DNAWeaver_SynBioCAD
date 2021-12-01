@@ -1,4 +1,4 @@
-name: dnaweaver
+name: dnaweaver_synbiocad
 channels:
   - conda-forge
 dependencies:
@@ -13,6 +13,6 @@ dependencies:
   - pandas
   - jinja2
   - dnaweaver
-  - optdoc
+  - docopt
   - requests
   - openpyxl

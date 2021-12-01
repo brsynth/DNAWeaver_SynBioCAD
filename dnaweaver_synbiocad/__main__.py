@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     # PARSE THE COMMAN LINE PARAMETERS
     parser = build_args_parser(
-        prog = 'dnaweaver_cli',
+        prog = 'dnaweaver_synbiocad',
         description='Create an optimized assembly plan for combinatorial designs'
     )
     args = parser.parse_args()
@@ -21,11 +21,13 @@ if __name__ == "__main__":
     part_sequences, construct_parts, construct_sequences = design_data
 
     # COMPUTE ALL QUOTES
+    if args.constructs < 0:
+      args.constructs = None
     assembly_strategy_data = compute_all_construct_quotes(
         construct_sequences=construct_sequences,
         part_sequences=part_sequences,
         assembly_method=args.assembly_method,
-        max_constructs=int(args.constructs) if args.constructs else None
+        max_constructs=args.constructs
     )
     quotes, primer_sequences, fragment_quotes, errors = assembly_strategy_data
 
