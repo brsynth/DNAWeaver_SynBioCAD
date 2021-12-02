@@ -21,8 +21,6 @@ if __name__ == "__main__":
     part_sequences, construct_parts, construct_sequences = design_data
 
     # COMPUTE ALL QUOTES
-    if args.constructs < 0:
-      args.constructs = None
     assembly_strategy_data = compute_all_construct_quotes(
         construct_sequences=construct_sequences,
         part_sequences=part_sequences,
