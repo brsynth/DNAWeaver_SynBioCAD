@@ -6,7 +6,13 @@ this_directory = os.path.dirname(os.path.realpath(__file__))
 
 
 def get_sheet_length(filepath, sheet_name):
-    return len(pandas.read_excel(filepath, sheet_name=sheet_name))
+    return len(
+        pandas.read_excel(
+            filepath,
+            sheet_name=sheet_name,
+            engine='openpyxl'
+        )
+    )
 
 
 def run_test_with_assembly_method(output_path, assembly_method):
