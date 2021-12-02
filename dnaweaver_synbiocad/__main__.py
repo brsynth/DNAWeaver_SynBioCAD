@@ -6,7 +6,6 @@ from . import (
 )
 from .Args import build_args_parser
 
-
 if __name__ == "__main__":
 
     # PARSE THE COMMAN LINE PARAMETERS

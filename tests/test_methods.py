@@ -10,7 +10,7 @@ def get_sheet_length(filepath, sheet_name):
 
 
 def run_test_with_assembly_method(output_path, assembly_method):
-    script_path = "python -m dnaweaver_cli"
+    script_path = "python -m dnaweaver_synbiocad"
     input_path = os.path.join(
         this_directory,
         'data',
