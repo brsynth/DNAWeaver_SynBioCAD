@@ -1,6 +1,7 @@
 from sbml2sbol import sbol
 from collections import OrderedDict
 
+
 def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
     """Extract an assembly plan from sbol
 
