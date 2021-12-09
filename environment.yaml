@@ -9,3 +9,4 @@ dependencies:
   - pandas
   - requests
   - openpyxl
+  - sbml2sbol
