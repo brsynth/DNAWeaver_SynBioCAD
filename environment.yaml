@@ -2,11 +2,11 @@ name: dnaweaver_synbiocad
 channels:
   - conda-forge
 dependencies:
-  - python=3.6
+  - python=3.7
   - bioconda::dnaweaver
   - docopt
   - proglog
   - pandas
   - requests
   - openpyxl
-  - sbml2sbol
+  - sbml2sbol>=0.1.13
