@@ -1,5 +1,9 @@
-from sbml2sbol import sbol
+import sbol2 as sbol
 from collections import OrderedDict
+
+def id_sort(i: iter):
+    """Sort a collection of SBOL objects and/or URIs by identity URI"""
+    return sorted(i, key=lambda x: x.identity if isinstance(x, sbol.Identified) else x)
 
 
 def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
@@ -27,13 +31,14 @@ def get_assembly_plan_from_sbol(sbol_doc=None, path=None):
         for seq in sbol_doc.sequences
     }
     parts_per_construct = [
-        (component.displayId.replace('_sequence', '').replace('_seq', ''), [c.displayId[:-2] for c in component.components])
+        (component.displayId.replace('_sequence', '').replace('_seq', ''),
+         [c.displayId[:-2] for c in id_sort(component.components)])
         for component in sbol_doc.componentDefinitions
         if len(component.components)
     ]
 
     constructs_sequences = [
-        (construct_name, "".join([parts_sequences[part] for part in parts]))
+        (construct_name, "".join([parts_sequences[part] for part in id_sort(parts)]))
         for construct_name, parts in parts_per_construct
     ]
     parts_per_construct = OrderedDict(parts_per_construct)
