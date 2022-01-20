@@ -36,7 +36,7 @@ def add_arguments(parser: ArgumentParser) -> ArgumentParser:
         help='If "any_method" is selected, each construct can be built with any method. However, Golden Gate Assembly will have priority over Gibson Assembly'
     )
     parser.add_argument(
-        '--constructs',
+        '--nb_constructs',
         type=int,
         help='Maximum number of constructs to build (only used in tests)'
     )

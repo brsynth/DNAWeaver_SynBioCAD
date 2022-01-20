@@ -25,7 +25,7 @@ if __name__ == "__main__":
         construct_sequences=construct_sequences,
         part_sequences=part_sequences,
         assembly_method=args.assembly_method,
-        max_constructs=args.constructs
+        max_constructs=args.nb_constructs
     )
     quotes, primer_sequences, fragment_quotes, errors = assembly_strategy_data
 

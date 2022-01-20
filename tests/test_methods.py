@@ -27,7 +27,7 @@ def run_test_with_assembly_method(output_path, assembly_method):
         input_path,
         output_path,
         assembly_method,
-        "--constructs=6",
+        "--nb_constructs=6",
     ]
     process = subprocess.run(
         script_path.split() + parameters,
